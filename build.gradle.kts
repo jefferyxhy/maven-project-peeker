@@ -45,3 +45,15 @@ tasks {
     token.set(System.getenv("PUBLISH_TOKEN"))
   }
 }
+
+dependencies {
+  // 3rd party dependencies
+  implementation("com.google.code.gson:gson:2.10.1")
+  implementation("org.openjdk.nashorn:nashorn-core:15.4")
+  implementation("org.apache.maven:maven-model:3.5.0")
+  implementation("org.apache.maven:maven-core:3.9.8")
+  implementation("org.apache.maven:maven-core:3.9.8")
+  implementation("org.apache.maven.shared:maven-invoker:3.2.0")
+  implementation("org.ehcache:ehcache:3.10.8")
+  implementation("org.slf4j:log4j-over-slf4j:2.0.16")
+}
