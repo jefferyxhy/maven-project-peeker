@@ -22,13 +22,6 @@
   <depends>com.intellij.modules.platform</depends>
   <depends>org.jetbrains.idea.maven</depends>
 
-  <applicationListeners>
-    <listener class="com.jefferyxhy.plugins.mavenprojectpeeker.listeners.CustomAppLifecycleListener"
-              topic="com.intellij.ide.AppLifecycleListener"/>
-    <listener class="com.jefferyxhy.plugins.mavenprojectpeeker.listeners.CustomPluginStateListener"
-              topic="com.intellij.ide.plugins.PluginStateListener"/>
-  </applicationListeners>
-
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
@@ -38,36 +31,4 @@
                        displayType="BALLOON"
                        key="maven.project.peeker.notification.group"/>
   </extensions>
-  <actions>
-    <group id="MavenProjectPeekerEditorPopupGroup" text="Maven Project Peeker" popup="false">
-      <action id="SelectArtifactPopupMenuAction"
-              class="com.jefferyxhy.plugins.mavenprojectpeeker.actions.SelectArtifactPopupMenuAction"
-              text="Show Confluence Artifact Info"
-              description="Show artifact information">
-      </action>
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-    </group>
-
-    <group id="MavenProjectPeekerMenuGroup" text="Maven Project Peeker" popup="true">
-      <action id="SetPluginDataStoreDirectoryAction"
-              class="com.jefferyxhy.plugins.mavenprojectpeeker.actions.SetPluginReposDirectoryAction"
-              text="Set Confluence Development Tool Directory"
-              description="Set Confluence development tool directory">
-      </action>
-      <action id="ReloadConfluencePluginDataMenuAction"
-              class="com.jefferyxhy.plugins.mavenprojectpeeker.actions.ReLoadPluginReposMenuAction"
-              text="Reload Confluence Plugin Data" description="Reload Confluence plugin data">
-      </action>
-      <action id="UpdatePluginReposArtifactsMenuAction"
-              class="com.jefferyxhy.plugins.mavenprojectpeeker.actions.UpdatePluginReposArtifactsMenuAction"
-              text="Update Confluence Plugin Repos Artifacts Data"
-              description="Update Confluence plugin repos artifacts data">
-      </action>
-      <action id="CleanPluginCacheMenuAction"
-              class="com.jefferyxhy.plugins.mavenprojectpeeker.actions.CleanPluginCacheMenuAction"
-              text="Clean Plugin Cache" description="Clean plugin cache">
-      </action>
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </group>
-  </actions>
 </idea-plugin>

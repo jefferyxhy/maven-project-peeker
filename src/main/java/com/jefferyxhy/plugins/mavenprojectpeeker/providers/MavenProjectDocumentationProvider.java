@@ -5,8 +5,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.xml.DomManager;
-import com.jefferyxhy.plugins.mavenprojectpeeker.data.Artifact;
-import com.jefferyxhy.plugins.mavenprojectpeeker.services.PluginArtifactMappingService;
 import com.jefferyxhy.plugins.mavenprojectpeeker.utils.MavenUtils;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.jetbrains.idea.maven.dom.model.MavenDomProjectModel;
@@ -80,10 +78,6 @@ public class MavenProjectDocumentationProvider extends AbstractDocumentationProv
 
     private String getDocumentationForScm(Project project, MavenDomProjectModel domProjectModel) throws MavenInvocationException {
         List<String> docs = new ArrayList<>();
-
-        // Artifact url
-        Artifact artifact = PluginArtifactMappingService.getInstance().getArtifact(domProjectModel.getArtifactId().getValue());
-        if (artifact.getUrl() != null) docs.add(asRenderedDoc("Pom Url", artifact.getUrl(), true));
 
         // Scm url
         String scmUrl = MavenUtils.getScmUrl(project, domProjectModel);
